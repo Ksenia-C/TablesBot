@@ -31,7 +31,6 @@ jobs:
     
     - name: Test with Unittest
       run: |
-        python3 bot/echo_bot.py
         python3 -m unittest discover -s tests
     - name: Pylint checking
       run: |
