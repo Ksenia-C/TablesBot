@@ -1,9 +1,6 @@
-"""
-Unit tests. Right now use only to test github actions.
-"""
 
-import sys
 import unittest
+import sys
 import logging
 
 logging.basicConfig(stream=sys.stderr, level=logging.DEBUG)
