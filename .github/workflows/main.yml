@@ -1,0 +1,40 @@
+# This workflow will install Python dependencies and run tests with a single version of Python
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
+
+name: Linux CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  build:
+    strategy:
+      matrix:
+        platform: [ubuntu-latest]
+
+    runs-on: ${{ matrix.platform }}
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+    - name: Install dependencies
+      run: |
+        python3 -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install pylint
+    
+    - name: Test with Unittest
+      run: |
+        python3 bot/echo_bot.py
+        python3 -m unittest discover -s tests
+    - name: Pylint checking
+      run: |
+        pylint bot tests
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag calc-bot-docker:$(date +%s)
