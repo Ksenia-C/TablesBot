@@ -4,6 +4,8 @@
 name: Linux CI
 
 on:
+  release:
+    types: [published]
   push:
     branches: [ main ]
     tags:
