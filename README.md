@@ -1,2 +1,14 @@
 # AgonyOfCalculus
-telegram bot made as a hometask to help with calculus tasks
+Петренко Ксения
+
+По идее бот должен уметь для человека по табличке искать его ФИО и выдавать всю строчку с оценками. Можно искать не только себя. К сожалению, из-за ошибки 
+
+bot/impl_bot.py:7:0: E0401: Unable to import 'pandas' (import-error)
+
+все это лежит в ветке make_tables, а в main echo bot и джобы, которые не вливают изменения из-за pylint.
+
+@CalculusAssistBot
+
+Запущен на Amazon
+
+Для автоматического обновления использовался WatchTower. При каждом создании тега или релиза выполняется джоба, которая загружает контейнер на docker hub, а затем на сервере с помощью WatchTower обновляется версия образа
