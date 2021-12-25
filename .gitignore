@@ -1,4 +1,5 @@
-docker-compose.yml
 ve
 *__pycache__
 *.pem*
+volumes/*
+!volumes/format
