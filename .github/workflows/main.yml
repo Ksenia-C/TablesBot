@@ -32,13 +32,13 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         pip install -r requirements.txt
-        pip install pylint
+        pip install flake8
     
     - name: Test with Unittest
       run: |
         python3 -m unittest discover -s tests
-    - name: Pylint checking
+    - name: Flake checking
       run: |
-        pylint bot tests
+        flake8 bot tests
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag calc-bot-docker:$(date +%s)
