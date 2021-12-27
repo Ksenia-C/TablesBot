@@ -6,7 +6,7 @@ services:
     labels:
       - "com.centurylinklabs.watchtower.scope=myscope"
     environment:
-      TOKEN: "5065674481:AAGDYE16kYOn49f0-lFSJpISgF-0348dV6I"
+      TOKEN:
 
   watchtower:
     image: containrrr/watchtower
